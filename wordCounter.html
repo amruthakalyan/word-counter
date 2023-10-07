@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordCounter -Project-2</title>
+</head>
+<style>
+    body {
+        padding: 50px 100px;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+        background-color: #2e14d3;
+        color: aliceblue;
+        margin: 0px;
+        overflow: hidden;
+    }
+
+    #text {
+        width: 99%;
+        height: 150px;
+        overflow: hidden;
+        border-color: #6336dd;
+    }
+    p{
+        background-color:#2e14d3;
+        margin: 0px;
+        padding: 10px;
+        color: aliceblue;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Word Counter</h1>
+        <textarea id="text" placeholder="Enter text here" value=""></textarea>
+        <p>
+         <span id="word">0</span>words
+         <span id="char">0</span>characters
+        </p>
+    </div>
+</body>
+<script>
+    let text = document.getElementById('text');
+    text.addEventListener('input', function () {
+      var t =this.value;
+      let char =t.length;
+      document.getElementById('char').innerHTML=char;
+      t=t.trim();
+      let words = t.split(" ");
+      let cleanedlist = words.filter( function(elm){
+             return elm!=""; 
+      });
+      document.getElementById('word').innerHTML=cleanedlist.length;
+    })
+
+</script>
+
+</html>
